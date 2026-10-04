@@ -1,0 +1,7 @@
+{
+  "name": "TabFast Instant Bill Splitter",
+  "description": "Instant bill splitting application for dinners and group occasions with exact penny allocation, error handling, and shareable links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

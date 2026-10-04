@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Optical compensation for dark mode type readability */
+.dark {
+  color-scheme: dark;
+}
+
+/* =========================================================================
+   STRICT HIGH-FIDELITY PRINTER STYLESHEET
+   Eliminates all UI buttons, chrome, inputs, backgrounds, and prints ONLY
+   the pristine itemized thermal receipt voucher with embedded scannable QR.
+   ========================================================================= */
+@media print {
+  /* Hide the entire interactive application */
+  header,
+  footer,
+  main,
+  #calculator,
+  #results,
+  [role="dialog"],
+  [role="status"],
+  button,
+  input,
+  select,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset body and canvas for pure black ink printing */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    font-size: 11pt !important;
+  }
+
+  /* Expose ONLY the photorealistic thermal receipt */
+  #thermal-receipt-print {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 20px auto !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-inside: avoid !important;
+  }
+
+  #thermal-receipt-print canvas {
+    display: block !important;
+    margin: 0 auto !important;
+  }
+}
